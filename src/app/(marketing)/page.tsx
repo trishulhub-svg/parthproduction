@@ -18,7 +18,8 @@ import {
   Instagram,
   Twitter,
   Linkedin,
-  ChevronDown
+  ChevronDown,
+  Mail
 } from 'lucide-react'
 import { useRef } from 'react'
 import { cn } from '../../lib/utils'

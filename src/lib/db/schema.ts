@@ -19,7 +19,7 @@ export const users = sqliteTable('users', {
 // ─── Categories ──────────────────────────────────────────
 export const categories = sqliteTable('categories', {
   id: integer('id').primaryKey({ autoIncrement: true }),
-  name: text('name').notNull(),
+  name: text('name').notNull().unique(),
   description: text('description'),
   icon: text('icon').default('Package'),
   createdAt: text('created_at').default(sql`(datetime('now'))`),

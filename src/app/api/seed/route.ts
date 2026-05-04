@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
-import { db } from '@/lib/db'
-import { users, categories, inventory } from '@/lib/db/schema'
+import { db } from '../../../lib/db'
+import { users, categories, inventory } from '../../../lib/db/schema'
 import bcrypt from 'bcryptjs'
-import { DEFAULT_CATEGORIES } from '@/lib/utils'
-import { genBarcode } from '@/lib/utils'
+import { DEFAULT_CATEGORIES } from '../../../lib/utils'
+import { genBarcode } from '../../../lib/utils'
 
 export async function POST() {
   try {

@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
-import { db } from '@/lib/db'
-import { users } from '@/lib/db/schema'
+import { db } from './db'
+import { users } from './db/schema'
 import { eq } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
 

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Button } from '@/components/ui/Button'
+import { Button } from '../../components/ui/Button'
 import { 
   Lightbulb, 
   Volume2, 
@@ -21,9 +21,9 @@ import {
   ChevronDown
 } from 'lucide-react'
 import { useRef } from 'react'
-import { cn } from '@/lib/utils'
+import { cn } from '../../lib/utils'
 
-const Hero3D = dynamic(() => import('@/components/3d/Hero3D'), { ssr: false })
+const Hero3D = dynamic(() => import('../../components/3d/Hero3D'), { ssr: false })
 
 export default function HomePage() {
   const containerRef = useRef(null)

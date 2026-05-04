@@ -3,13 +3,13 @@ import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/Button'
-import { Card, CardBody } from '@/components/ui/Card'
+import { Button } from '../../components/ui/Button'
+import { Card, CardBody } from '../../components/ui/Card'
 import { Film, Lock, Mail, AlertCircle, Loader2 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import toast from 'react-hot-toast'
 
-const Hero3D = dynamic(() => import('@/components/3d/Hero3D'), { ssr: false })
+const Hero3D = dynamic(() => import('../../components/3d/Hero3D'), { ssr: false })
 
 export default function LoginPage() {
   const router = useRouter()

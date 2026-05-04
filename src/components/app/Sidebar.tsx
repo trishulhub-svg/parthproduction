@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/lib/utils'
+import { cn } from '../../lib/utils'
 import { 
   LayoutDashboard, 
   Package, 
@@ -19,7 +19,7 @@ import {
   X
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/Button'
+import { Button } from '../ui/Button'
 import { signOut } from 'next-auth/react'
 
 const MENU_ITEMS = [

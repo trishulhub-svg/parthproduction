@@ -2,12 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --neon-green: #00ff87;
-  --neon-teal: #00d4ff;
+@layer base {
+  :root {
+    --neon-green: #00ff87;
+    --neon-teal: #00d4ff;
+    --navy-950: #04050f;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--navy-950);
+    color: white;
+    @apply antialiased;
+  }
 }
 
-body {
-  background-color: #04050f;
-  color: white;
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-strong {
+    @apply bg-navy-950/80 backdrop-blur-xl border border-white/10;
+  }
+
+  .neon-text-teal {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+
+  .neon-text-green {
+    text-shadow: 0 0 20px rgba(0, 255, 135, 0.5);
+  }
+
+  .shadow-glass-lg {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .shadow-neon-teal {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  }
+
+  .shadow-neon-green {
+    box-shadow: 0 0 30px rgba(0, 255, 135, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }

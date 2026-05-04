@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { useRef } from 'react'
 import { cn } from '../../lib/utils'
+import { Navbar } from '../../components/layout/Navbar'
 
 const Hero3D = dynamic(() => import('../../components/3d/Hero3D'), { ssr: false })
 
@@ -41,30 +42,7 @@ export default function HomePage() {
         <Hero3D />
       </div>
 
-      {/* Premium Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] px-6 py-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center glass-strong px-8 py-4 rounded-3xl border-white/5">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-green to-neon-teal flex items-center justify-center shadow-neon-green">
-              <Film className="w-6 h-6 text-navy-950" />
-            </div>
-            <div>
-              <h4 className="text-sm font-black tracking-tighter text-white leading-none">PARTH</h4>
-              <p className="text-[8px] font-black text-neon-teal uppercase tracking-[0.2em]">Production</p>
-            </div>
-          </div>
-          <div className="hidden md:flex items-center gap-10">
-            {['Services', 'Portfolio', 'Experience', 'Contact'].map(link => (
-              <Link key={link} href="#" className="text-[10px] font-black text-zinc-400 hover:text-white uppercase tracking-[0.3em] transition-colors">{link}</Link>
-            ))}
-          </div>
-          <Link href="/login">
-            <Button variant="outline" className="px-8 border-neon-teal/30 text-neon-teal hover:bg-neon-teal hover:text-navy-950">
-              Admin Access
-            </Button>
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Content */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center z-10 px-6">
@@ -77,7 +55,7 @@ export default function HomePage() {
             <span className="inline-block py-2 px-6 rounded-full bg-white/5 border border-white/10 text-neon-teal text-[10px] font-black uppercase tracking-[0.5em] mb-10 backdrop-blur-md">
               Cinematic Event Engineering
             </span>
-            <h1 className="text-7xl md:text-[12rem] font-black tracking-tighter text-white mb-8 uppercase leading-[0.8] mix-blend-difference">
+            <h1 className="text-5xl md:text-[12rem] font-black tracking-tighter text-white mb-8 uppercase leading-[0.8] mix-blend-difference">
               PARTH <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green via-neon-teal to-neon-purple neon-text-teal">
                 PRODUCTION
@@ -118,7 +96,7 @@ export default function HomePage() {
       </section>
 
       {/* Services - Scroll Revealed */}
-      <section className="relative py-40 px-6 z-10 bg-navy-950">
+      <section id="services" className="relative py-40 px-6 z-10 bg-navy-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end mb-32">
             <motion.div
@@ -184,8 +162,120 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Portfolio Section */}
+      <section id="portfolio" className="relative py-40 px-6 z-10 bg-navy-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <h2 className="text-[10px] font-black text-neon-teal uppercase tracking-[0.8em] mb-4">Case Studies</h2>
+            <h3 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter">Iconic <br/><span className="text-zinc-800">Moments</span></h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { title: 'Neon Night Festival', category: 'Live Concert', img: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3' },
+              { title: 'Global Tech Expo', category: 'Corporate', img: 'https://images.unsplash.com/photo-1540575861501-7ad058177a33' },
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ scale: 0.98 }}
+                className="group relative h-[600px] rounded-[40px] overflow-hidden border border-white/5"
+              >
+                <img src={item.img} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" alt={item.title} />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 to-transparent opacity-80" />
+                <div className="absolute bottom-12 left-12">
+                  <span className="text-[10px] font-black text-neon-green uppercase tracking-widest mb-2 block">{item.category}</span>
+                  <h4 className="text-4xl font-black text-white uppercase tracking-tighter">{item.title}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience / Stats Section */}
+      <section id="experience" className="relative py-40 px-6 z-10 bg-navy-950">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-10">
+              Decades of <br/> <span className="text-neon-teal">Precision.</span>
+            </h2>
+            <div className="space-y-12">
+              {[
+                { label: 'Founded', val: '2008', desc: 'Starting as a small sound boutique in Ahmedabad.' },
+                { label: 'Events', val: '5000+', desc: 'Successfully executed across 12 states in India.' },
+                { label: 'Team', val: '150+', desc: 'Specialized engineers and logistics experts.' },
+              ].map((stat, i) => (
+                <div key={i} className="flex gap-8 border-l-2 border-white/5 pl-8">
+                  <div className="text-4xl font-black text-white tracking-tighter">{stat.val}</div>
+                  <div>
+                    <div className="text-sm font-black text-neon-green uppercase tracking-widest mb-1">{stat.label}</div>
+                    <p className="text-sm text-zinc-500 font-medium">{stat.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative">
+             <div className="absolute -inset-10 bg-neon-teal/10 blur-[100px] rounded-full" />
+             <div className="relative glass-strong rounded-[40px] p-12 border-white/10">
+                <div className="text-8xl font-black text-white/5 absolute top-0 right-10 select-none">"</div>
+                <p className="text-2xl font-medium text-white mb-10 leading-relaxed italic">
+                  "Parth Production doesn't just provide equipment; they provide peace of mind. Their technical expertise is unmatched in the industry."
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-zinc-800 overflow-hidden">
+                    <img src="https://i.pravatar.cc/100?u=ceo" alt="Client" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-black text-white uppercase">Rajesh Mehta</div>
+                    <div className="text-[10px] font-bold text-neon-teal uppercase tracking-widest">CEO, Global Events India</div>
+                  </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="relative py-40 px-6 z-10 bg-navy-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-6xl md:text-[10rem] font-black text-white uppercase tracking-tighter mb-12 leading-none">
+              Let's <span className="text-neon-teal">Create.</span>
+            </h2>
+            <p className="text-xl md:text-3xl text-zinc-500 font-medium mb-20 max-w-2xl mx-auto">
+              Ready to elevate your production standards? Our team is standing by for your next masterclass.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+               <a href="https://wa.me/919999999999" className="glass h-24 rounded-3xl flex items-center justify-center gap-4 hover:border-neon-green/50 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-neon-green/10 flex items-center justify-center text-neon-green group-hover:scale-110 transition-transform">
+                    <Star className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">WhatsApp Us</div>
+                    <div className="text-lg font-black text-white">+91 99999 99999</div>
+                  </div>
+               </a>
+               <a href="mailto:hello@parthproduction.in" className="glass h-24 rounded-3xl flex items-center justify-center gap-4 hover:border-neon-teal/50 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-neon-teal/10 flex items-center justify-center text-neon-teal group-hover:scale-110 transition-transform">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Email Inquiry</div>
+                    <div className="text-lg font-black text-white">hello@parthproduction.in</div>
+                  </div>
+               </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Modern Footer */}
-      <footer className="relative py-32 px-6 z-10 border-t border-white/5 bg-navy-900">
+      <footer className="relative py-32 px-6 z-10 border-t border-white/5 bg-navy-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-20">
             <div className="col-span-1 lg:col-span-2">

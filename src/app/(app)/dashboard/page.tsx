@@ -16,7 +16,7 @@ import {
   Zap,
   Star
 } from 'lucide-react'
-import { fmtCurrency, fmtDate, STATUS_COLORS } from '@/lib/utils'
+import { fmtCurrency, fmtDate, STATUS_COLORS, cn } from '../../../lib/utils'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 

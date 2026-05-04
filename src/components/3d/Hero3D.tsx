@@ -6,31 +6,61 @@ import { Suspense } from "react"
 function Scene() {
   return (
     <>
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} color="#00ff87" />
-      <pointLight position={[-10, -10, -10]} intensity={1} color="#00d4ff" />
+      <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={0.5} />
+      <ambientLight intensity={0.2} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ff87" />
+      <pointLight position={[-10, -10, -10]} intensity={1.5} color="#00d4ff" />
+      <spotLight position={[0, 10, 0]} intensity={2} angle={0.5} penumbra={1} color="#ffffff" />
       
-      <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-        <mesh position={[0, 0, 0]}>
-          <octahedronGeometry args={[2, 0]} />
-          <meshStandardMaterial color="#00ff87" wireframe />
-        </mesh>
+      {/* Central Core Structure */}
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
+        <group>
+          {/* Main Crystal */}
+          <mesh position={[0, 0, 0]}>
+            <icosahedronGeometry args={[2, 1]} />
+            <meshStandardMaterial 
+              color="#ffffff" 
+              wireframe 
+              transparent 
+              opacity={0.1} 
+            />
+          </mesh>
+          <mesh position={[0, 0, 0]}>
+            <icosahedronGeometry args={[1.8, 0]} />
+            <meshStandardMaterial 
+              color="#00d4ff" 
+              emissive="#00d4ff" 
+              emissiveIntensity={0.5} 
+              transparent 
+              opacity={0.2}
+            />
+          </mesh>
+          
+          {/* Orbiting Tech Rings */}
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[3, 0.01, 16, 100]} />
+            <meshStandardMaterial color="#00ff87" emissive="#00ff87" emissiveIntensity={2} />
+          </mesh>
+          <mesh rotation={[0, Math.PI / 4, 0]}>
+            <torusGeometry args={[3.5, 0.005, 16, 100]} />
+            <meshStandardMaterial color="#00d4ff" emissive="#00d4ff" emissiveIntensity={1} />
+          </mesh>
+        </group>
       </Float>
 
-      <Float speed={3} rotationIntensity={2} floatIntensity={2}>
-        <mesh position={[4, 2, -2]}>
-          <sphereGeometry args={[0.5, 32, 32]} />
-          <meshStandardMaterial color="#00d4ff" emissive="#00d4ff" emissiveIntensity={2} />
-        </mesh>
-      </Float>
-
-      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={3}>
-        <mesh position={[-5, -2, -1]}>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="#ffd700" wireframe />
-        </mesh>
-      </Float>
+      {/* Floating Data Nodes */}
+      {[...Array(20)].map((_, i) => (
+        <Float key={i} speed={Math.random() * 2} rotationIntensity={1} floatIntensity={2}>
+          <mesh position={[
+            (Math.random() - 0.5) * 15,
+            (Math.random() - 0.5) * 15,
+            (Math.random() - 0.5) * 10 - 5
+          ]}>
+            <sphereGeometry args={[0.05, 16, 16]} />
+            <meshStandardMaterial color={i % 2 === 0 ? "#00ff87" : "#00d4ff"} emissive={i % 2 === 0 ? "#00ff87" : "#00d4ff"} emissiveIntensity={2} />
+          </mesh>
+        </Float>
+      ))}
     </>
   )
 }

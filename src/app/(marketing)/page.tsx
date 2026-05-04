@@ -56,18 +56,18 @@ export default function HomePage() {
             <span className="inline-block py-2 px-6 rounded-full bg-white/5 border border-white/10 text-neon-teal text-[10px] font-black uppercase tracking-[0.5em] mb-10 backdrop-blur-md">
               Cinematic Event Engineering
             </span>
-            <h1 className="text-5xl md:text-[12rem] font-black tracking-tighter text-white mb-8 uppercase leading-[0.8] mix-blend-difference">
+            <h1 className="text-4xl sm:text-6xl md:text-[12rem] font-black tracking-tighter text-white mb-8 uppercase leading-[0.9] md:leading-[0.8] mix-blend-difference">
               PARTH <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green via-neon-teal to-neon-purple neon-text-teal">
                 PRODUCTION
               </span>
             </h1>
-            <p className="max-w-2xl mx-auto text-lg md:text-2xl text-zinc-500 font-medium mb-12 leading-relaxed px-4">
+            <p className="max-w-2xl mx-auto text-sm md:text-2xl text-zinc-500 font-medium mb-12 leading-relaxed px-4">
               We don’t just host events. We engineer immersive atmospheres 
               using world-class lighting and sonic precision.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button size="lg" className="h-20 px-12 text-xl font-black rounded-full shadow-neon-green group">
+              <Button size="lg" className="h-16 md:h-20 px-8 md:px-12 text-lg md:text-xl font-black rounded-full shadow-neon-green group">
                 Start Your Journey
                 <ArrowRight className="ml-4 w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </Button>
@@ -97,18 +97,18 @@ export default function HomePage() {
       </section>
 
       {/* Services - Scroll Revealed */}
-      <section id="services" className="relative py-40 px-6 z-10 bg-navy-950">
+      <section id="services" className="relative py-20 md:py-40 px-6 z-10 bg-navy-950">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-end mb-20 md:mb-32">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-8xl font-black text-white leading-none uppercase tracking-tighter mb-8">
+              <h2 className="text-4xl md:text-8xl font-black text-white leading-none uppercase tracking-tighter mb-8">
                 Mastering the <br/> <span className="text-neon-teal">Technical Art</span>
               </h2>
-              <p className="text-xl text-zinc-500 font-medium max-w-lg">
+              <p className="text-lg md:text-xl text-zinc-500 font-medium max-w-lg">
                 Our inventory is curated for professionals who demand zero compromise 
                 on quality and performance.
               </p>
@@ -116,15 +116,15 @@ export default function HomePage() {
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="flex justify-end gap-10"
+              className="flex justify-start lg:justify-end gap-10"
             >
-              <div className="text-center">
-                <div className="text-5xl font-black text-white mb-2 tracking-tighter uppercase leading-none">12K+</div>
-                <div className="text-[10px] font-black text-neon-green uppercase tracking-[0.3em]">Assets in Stock</div>
+              <div className="text-center lg:text-left">
+                <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tighter uppercase leading-none">12K+</div>
+                <div className="text-[8px] md:text-[10px] font-black text-neon-green uppercase tracking-[0.3em]">Assets in Stock</div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl font-black text-white mb-2 tracking-tighter uppercase leading-none">24/7</div>
-                <div className="text-[10px] font-black text-neon-teal uppercase tracking-[0.3em]">Field Support</div>
+              <div className="text-center lg:text-left">
+                <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tighter uppercase leading-none">24/7</div>
+                <div className="text-[8px] md:text-[10px] font-black text-neon-teal uppercase tracking-[0.3em]">Field Support</div>
               </div>
             </motion.div>
           </div>
@@ -141,15 +141,15 @@ export default function HomePage() {
               <motion.div
                 key={i}
                 whileHover={{ y: -20 }}
-                className="group relative h-[500px] rounded-[40px] overflow-hidden glass border-white/5 cursor-pointer"
+                className="group relative h-[400px] md:h-[500px] rounded-[30px] md:rounded-[40px] overflow-hidden glass border-white/5 cursor-pointer"
               >
                 <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
-                <div className="absolute inset-0 p-12 flex flex-col justify-end">
-                  <div className={cn("w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6 shadow-2xl", service.color)}>
-                    <service.icon className="w-8 h-8 text-white" />
+                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
+                  <div className={cn("w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6 shadow-2xl", service.color)}>
+                    <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
-                  <h3 className="text-3xl font-black text-white mb-4 uppercase tracking-tighter leading-none">{service.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4 uppercase tracking-tighter leading-none">{service.title}</h3>
                   <p className="text-sm font-medium text-zinc-400 mb-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-10 group-hover:translate-y-0">
                     Industry leading hardware deployed by master technicians.
                   </p>
@@ -164,11 +164,11 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="relative py-40 px-6 z-10 bg-navy-900 overflow-hidden">
+      <section id="portfolio" className="relative py-20 md:py-40 px-6 z-10 bg-navy-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
-            <h2 className="text-[10px] font-black text-neon-teal uppercase tracking-[0.8em] mb-4">Case Studies</h2>
-            <h3 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter">Iconic <br/><span className="text-zinc-800">Moments</span></h3>
+          <div className="mb-12 md:mb-20">
+            <h2 className="text-[8px] md:text-[10px] font-black text-neon-teal uppercase tracking-[0.8em] mb-4">Case Studies</h2>
+            <h3 className="text-4xl md:text-8xl font-black text-white uppercase tracking-tighter">Iconic <br/><span className="text-zinc-800">Moments</span></h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -179,13 +179,13 @@ export default function HomePage() {
               <motion.div 
                 key={i}
                 whileHover={{ scale: 0.98 }}
-                className="group relative h-[600px] rounded-[40px] overflow-hidden border border-white/5"
+                className="group relative h-[400px] md:h-[600px] rounded-[30px] md:rounded-[40px] overflow-hidden border border-white/5"
               >
                 <img src={item.img} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" alt={item.title} />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 to-transparent opacity-80" />
-                <div className="absolute bottom-12 left-12">
-                  <span className="text-[10px] font-black text-neon-green uppercase tracking-widest mb-2 block">{item.category}</span>
-                  <h4 className="text-4xl font-black text-white uppercase tracking-tighter">{item.title}</h4>
+                <div className="absolute bottom-8 md:bottom-12 left-8 md:left-12">
+                  <span className="text-[8px] md:text-[10px] font-black text-neon-green uppercase tracking-widest mb-2 block">{item.category}</span>
+                  <h4 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">{item.title}</h4>
                 </div>
               </motion.div>
             ))}
@@ -194,23 +194,23 @@ export default function HomePage() {
       </section>
 
       {/* Experience / Stats Section */}
-      <section id="experience" className="relative py-40 px-6 z-10 bg-navy-950">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section id="experience" className="relative py-20 md:py-40 px-6 z-10 bg-navy-950">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
-            <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-10">
+            <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-10">
               Decades of <br/> <span className="text-neon-teal">Precision.</span>
             </h2>
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {[
                 { label: 'Founded', val: '2008', desc: 'Starting as a small sound boutique in Ahmedabad.' },
                 { label: 'Events', val: '5000+', desc: 'Successfully executed across 12 states in India.' },
                 { label: 'Team', val: '150+', desc: 'Specialized engineers and logistics experts.' },
               ].map((stat, i) => (
-                <div key={i} className="flex gap-8 border-l-2 border-white/5 pl-8">
-                  <div className="text-4xl font-black text-white tracking-tighter">{stat.val}</div>
+                <div key={i} className="flex gap-6 md:gap-8 border-l-2 border-white/5 pl-6 md:pl-8">
+                  <div className="text-3xl md:text-4xl font-black text-white tracking-tighter">{stat.val}</div>
                   <div>
-                    <div className="text-sm font-black text-neon-green uppercase tracking-widest mb-1">{stat.label}</div>
-                    <p className="text-sm text-zinc-500 font-medium">{stat.desc}</p>
+                    <div className="text-[10px] md:text-sm font-black text-neon-green uppercase tracking-widest mb-1">{stat.label}</div>
+                    <p className="text-xs md:text-sm text-zinc-500 font-medium">{stat.desc}</p>
                   </div>
                 </div>
               ))}
@@ -218,18 +218,18 @@ export default function HomePage() {
           </div>
           <div className="relative">
              <div className="absolute -inset-10 bg-neon-teal/10 blur-[100px] rounded-full" />
-             <div className="relative glass-strong rounded-[40px] p-12 border-white/10">
-                <div className="text-8xl font-black text-white/5 absolute top-0 right-10 select-none">"</div>
-                <p className="text-2xl font-medium text-white mb-10 leading-relaxed italic">
+             <div className="relative glass-strong rounded-[30px] md:rounded-[40px] p-8 md:p-12 border-white/10">
+                <div className="text-6xl md:text-8xl font-black text-white/5 absolute top-0 right-10 select-none">"</div>
+                <p className="text-lg md:text-2xl font-medium text-white mb-10 leading-relaxed italic">
                   "Parth Production doesn't just provide equipment; they provide peace of mind. Their technical expertise is unmatched in the industry."
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 overflow-hidden">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-800 overflow-hidden">
                     <img src="https://i.pravatar.cc/100?u=ceo" alt="Client" />
                   </div>
                   <div>
-                    <div className="text-sm font-black text-white uppercase">Rajesh Mehta</div>
-                    <div className="text-[10px] font-bold text-neon-teal uppercase tracking-widest">CEO, Global Events India</div>
+                    <div className="text-xs md:text-sm font-black text-white uppercase">Rajesh Mehta</div>
+                    <div className="text-[8px] md:text-[10px] font-bold text-neon-teal uppercase tracking-widest">CEO, Global Events India</div>
                   </div>
                 </div>
              </div>
@@ -238,36 +238,36 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative py-40 px-6 z-10 bg-navy-900">
+      <section id="contact" className="relative py-20 md:py-40 px-6 z-10 bg-navy-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-6xl md:text-[10rem] font-black text-white uppercase tracking-tighter mb-12 leading-none">
+            <h2 className="text-4xl md:text-[10rem] font-black text-white uppercase tracking-tighter mb-8 md:mb-12 leading-none">
               Let's <span className="text-neon-teal">Create.</span>
             </h2>
-            <p className="text-xl md:text-3xl text-zinc-500 font-medium mb-20 max-w-2xl mx-auto">
+            <p className="text-lg md:text-3xl text-zinc-500 font-medium mb-12 md:20 max-w-2xl mx-auto">
               Ready to elevate your production standards? Our team is standing by for your next masterclass.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <a href="https://wa.me/919999999999" className="glass h-24 rounded-3xl flex items-center justify-center gap-4 hover:border-neon-green/50 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-neon-green/10 flex items-center justify-center text-neon-green group-hover:scale-110 transition-transform">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+               <a href="https://wa.me/919999999999" className="glass h-20 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center gap-4 hover:border-neon-green/50 transition-all group px-6">
+                  <div className="w-10 h-10 rounded-xl bg-neon-green/10 flex items-center justify-center text-neon-green group-hover:scale-110 transition-transform shrink-0">
                     <Star className="w-5 h-5" />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">WhatsApp Us</div>
-                    <div className="text-lg font-black text-white">+91 99999 99999</div>
+                    <div className="text-[8px] md:text-[10px] font-black text-zinc-600 uppercase tracking-widest">WhatsApp Us</div>
+                    <div className="text-base md:text-lg font-black text-white">+91 99999 99999</div>
                   </div>
                </a>
-               <a href="mailto:hello@parthproduction.in" className="glass h-24 rounded-3xl flex items-center justify-center gap-4 hover:border-neon-teal/50 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-neon-teal/10 flex items-center justify-center text-neon-teal group-hover:scale-110 transition-transform">
+               <a href="mailto:hello@parthproduction.in" className="glass h-20 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center gap-4 hover:border-neon-teal/50 transition-all group px-6">
+                  <div className="w-10 h-10 rounded-xl bg-neon-teal/10 flex items-center justify-center text-neon-teal group-hover:scale-110 transition-transform shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Email Inquiry</div>
-                    <div className="text-lg font-black text-white">hello@parthproduction.in</div>
+                    <div className="text-[8px] md:text-[10px] font-black text-zinc-600 uppercase tracking-widest">Email Inquiry</div>
+                    <div className="text-base md:text-lg font-black text-white break-all md:break-normal">hello@parthproduction.in</div>
                   </div>
                </a>
             </div>

@@ -27,23 +27,23 @@ export function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 py-6",
-      isScrolled ? "py-4" : "py-8"
+      "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-4 md:px-6 py-4 md:py-8",
+      isScrolled ? "py-2 md:py-4" : "py-4 md:py-8"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-3 md:py-4 rounded-[2rem] border transition-all duration-500",
+        "max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 py-2 md:py-4 rounded-2xl md:rounded-[2rem] border transition-all duration-500",
         isScrolled 
           ? "glass-strong border-white/10 shadow-2xl" 
-          : "bg-transparent border-transparent"
+          : "bg-navy-950/20 backdrop-blur-sm border-white/5"
       )}>
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-green to-neon-teal flex items-center justify-center shadow-neon-green group-hover:scale-110 transition-transform">
-            <Film className="w-6 h-6 text-navy-950" />
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group">
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-neon-green to-neon-teal flex items-center justify-center shadow-neon-green group-hover:scale-110 transition-transform">
+            <Film className="w-5 h-5 md:w-6 md:h-6 text-navy-950" />
           </div>
-          <div className="hidden sm:block">
-            <h4 className="text-sm font-black tracking-tighter text-white leading-none uppercase">PARTH</h4>
-            <p className="text-[8px] font-black text-neon-teal uppercase tracking-[0.2em]">Production</p>
+          <div>
+            <h4 className="text-xs md:text-sm font-black tracking-tighter text-white leading-none uppercase">PARTH</h4>
+            <p className="text-[6px] md:text-[8px] font-black text-neon-teal uppercase tracking-[0.2em]">Production</p>
           </div>
         </Link>
 

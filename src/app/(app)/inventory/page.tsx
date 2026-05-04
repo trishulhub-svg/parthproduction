@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react'
-import { Card, CardBody } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
+import { Card, CardBody } from '../../../components/ui/Card'
+import { Button } from '../../../components/ui/Button'
 import { 
   Plus, 
   Search, 
@@ -14,7 +14,7 @@ import {
   List,
   AlertCircle
 } from 'lucide-react'
-import { cn, STATUS_COLORS } from '@/lib/utils'
+import { cn, STATUS_COLORS } from '../../../lib/utils'
 import toast from 'react-hot-toast'
 import { motion, AnimatePresence } from 'framer-motion'
 

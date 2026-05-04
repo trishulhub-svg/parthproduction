@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
-import { Card, CardBody } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
+import { Card, CardBody } from '../../../components/ui/Card'
+import { Button } from '../../../components/ui/Button'
 import { 
   Boxes, 
   CheckCircle2, 

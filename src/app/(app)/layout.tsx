@@ -1,4 +1,4 @@
-import { Sidebar } from './Sidebar'
+import { Sidebar } from '../../components/app/Sidebar'
 import { auth } from '@/lib/auth'
 import { cn } from '@/lib/utils'
 

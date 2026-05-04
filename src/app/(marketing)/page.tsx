@@ -178,7 +178,6 @@ export default function HomePage() {
                     Configure Solution <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </Card>
             ))}
           </div>
         </div>
